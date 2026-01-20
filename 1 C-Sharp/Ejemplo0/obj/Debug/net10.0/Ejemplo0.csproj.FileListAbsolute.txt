@@ -1,0 +1,15 @@
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\bin\Debug\net10.0\Ejemplo0.exe
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\bin\Debug\net10.0\Ejemplo0.deps.json
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\bin\Debug\net10.0\Ejemplo0.runtimeconfig.json
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\bin\Debug\net10.0\Ejemplo0.dll
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\bin\Debug\net10.0\Ejemplo0.pdb
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.GeneratedMSBuildEditorConfig.editorconfig
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.AssemblyInfoInputs.cache
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.AssemblyInfo.cs
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.csproj.CoreCompileInputs.cache
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.sourcelink.json
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.dll
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\refint\Ejemplo0.dll
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.pdb
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\Ejemplo0.genruntimeconfig.cache
+D:\USAC\Auxiliatura\Repositorio-Ejemplos\IPC2-1S2026\1 C-Sharp\Ejemplo0\obj\Debug\net10.0\ref\Ejemplo0.dll

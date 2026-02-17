@@ -33,13 +33,13 @@ namespace Semana_4.Lista_Simple
             else
             {
                 // Si la lista no está vacía, se recorre hasta el final y se agrega el nuevo nodo
-                Nodo actual = cabeza;
-                while (actual.GetSiguiente() != null)
+                Nodo? actual = cabeza;
+                while (actual?.GetSiguiente() != null)
                 {
                     // Avanza al siguiente nodo hasta llegar al final de la lista
                     actual = actual.GetSiguiente();
                 }
-                actual.SetSiguiente(nuevoNodo);
+                actual?.SetSiguiente(nuevoNodo);
                 tamanio++;
             }
         }
@@ -63,14 +63,14 @@ namespace Semana_4.Lista_Simple
             }
 
             // Recorrer la lista para encontrar el paciente a eliminar
-            Nodo actual = cabeza;
-            while (actual.GetSiguiente() != null)
+            Nodo? actual = cabeza;
+            while (actual?.GetSiguiente() != null)
             {
                 if (actual.GetSiguiente().GetDato().GetNombre() == nombre)
                 {
                     // Eliminar el nodo que contiene al paciente encontrado
                     // Se actualiza el enlace del nodo actual para saltar el nodo a eliminar
-                    actual.SetSiguiente(actual.GetSiguiente().GetSiguiente());
+                    actual.SetSiguiente(actual.GetSiguiente()?.GetSiguiente());
                     tamanio--;
                     Console.WriteLine($"Paciente '{nombre}' eliminado de la lista.");
                     return;
@@ -86,7 +86,7 @@ namespace Semana_4.Lista_Simple
             Console.WriteLine("Lista Simplemente Enlazada de Pacientes:");
             Console.WriteLine("---------------------------------------");
             // Recorre la lista desde la cabeza hasta el final, imprimiendo los datos de cada paciente
-            Nodo actual = cabeza;
+            Nodo? actual = cabeza;
             while (actual != null)
             {
                 Paciente paciente = actual.GetDato();
@@ -97,16 +97,25 @@ namespace Semana_4.Lista_Simple
         // Buscar un paciente por su nombre y devolver el nodo que lo contiene
         public Nodo? BuscarPaciente(string nombre)
         {
-            Nodo actual = cabeza;
+            Nodo? actual = cabeza;
             while (actual != null)
             {
                 if (actual.GetDato().GetNombre() == nombre)
                 {
-                    return actual; // Retorna el nodo que contiene al paciente encontrado
+                    // Retorna el nodo que contiene al paciente encontrado
+                    return actual; 
                 }
                 actual = actual.GetSiguiente();
             }
-            return null; // Retorna null si no se encuentra el paciente
+            // Retorna null si no se encuentra el paciente
+            return null; 
+        }
+        // Limpia la lista eliminando todos los nodos y reiniciando el tamaño
+        public void LimpiarLista()
+        {
+            cabeza = null;
+            tamanio = 0;
+            Console.WriteLine("Lista limpiada exitosamente.");
         }
         
     }

@@ -35,6 +35,12 @@ public static class Program
                 case "6":
                     Console.WriteLine($"Tamaño de la lista: {ListaPacientes.GetTamanio()}");
                     break;
+                case "7":
+                    ImpirmirCeldasPaciente(ListaPacientes);
+                    break;
+                case "8":
+                    ImprimirMatrizPaciente(ListaPacientes);
+                    break;
                 case "0":
                     continuar = false;
                     Console.WriteLine("Saliendo del programa...");
@@ -58,6 +64,8 @@ public static class Program
         Console.WriteLine("4. Recorrer Lista de Pacientes");
         Console.WriteLine("5. Buscar Paciente por Nombre");
         Console.WriteLine("6. Tamaño de la Lista");
+        Console.WriteLine("7. Imprimir Celdas Contagiadas de un Paciente");
+        Console.WriteLine("8. Imprimir Matriz de un Paciente");
         Console.WriteLine("0. Salir");
         Console.WriteLine("--------------------------------");
         Console.Write("Opción: ");
@@ -87,7 +95,7 @@ public static class Program
     {
         Console.Write("Ingrese el nombre del paciente a buscar: ");
         string nombreBuscar = Console.ReadLine() ?? "";
-        Nodo nodoEncontrado = ListaPacientes.BuscarPaciente(nombreBuscar);
+        Nodo? nodoEncontrado = ListaPacientes.BuscarPaciente(nombreBuscar);
         if (nodoEncontrado != null)
         {
             Paciente pacienteEncontrado = nodoEncontrado.GetDato();
@@ -99,4 +107,37 @@ public static class Program
             Console.WriteLine($"Paciente '{nombreBuscar}' no encontrado en la lista.");
         }
     }
+
+    public static void ImpirmirCeldasPaciente(ListaSimple ListaPacientes)
+    {
+        Console.Write("Ingrese el nombre del paciente para imprimir sus celdas contagiadas: ");
+        string nombrePaciente = Console.ReadLine() ?? "";
+        Nodo? nodoPaciente = ListaPacientes.BuscarPaciente(nombrePaciente);
+        if (nodoPaciente != null)
+        {
+            Paciente paciente = nodoPaciente.GetDato();
+            paciente.ImprimirCeldas();
+        }
+        else
+        {
+            Console.WriteLine($"Paciente '{nombrePaciente}' no encontrado en la lista.");
+        }
+    }
+
+    public static void ImprimirMatrizPaciente(ListaSimple ListaPacientes)
+    {
+        Console.Write("Ingrese el nombre del paciente para imprimir su matriz: ");
+        string nombrePaciente = Console.ReadLine() ?? "";
+        Nodo? nodoPaciente = ListaPacientes.BuscarPaciente(nombrePaciente);
+        if (nodoPaciente != null)
+        {
+            Paciente paciente = nodoPaciente.GetDato();
+            paciente.ImprimirMatriz();
+        }
+        else
+        {
+            Console.WriteLine($"Paciente '{nombrePaciente}' no encontrado en la lista.");
+        }
+    }
+
 }

@@ -53,14 +53,18 @@ namespace Semana_4.Xml
                 string matriz = nodoPaciente.SelectSingleNode("m")?.InnerText ?? "0";
                 // Crear el objeto Paciente con los datos extraídos
                 Paciente paciente = new Paciente(nombre, edad, int.Parse(periodos), int.Parse(matriz));
+
+                // Insertar el paciente en la lista de pacientes
                 listaPacientes.InsertarPaciente(paciente);
                 Console.WriteLine($"Paciente '{nombre}' procesado e insertado en la lista.");
+
+                //
                 XmlNode? rejilla = nodoPaciente.SelectSingleNode("rejilla");
                 
                 if (rejilla != null && rejilla.HasChildNodes)
                 {
                     // Procesar las celdas contagiadas del paciente
-                    ProcesarCeldas(rejilla);
+                    ProcesarCeldas(rejilla, paciente);
                 }
             }
             catch (Exception ex)
@@ -70,7 +74,7 @@ namespace Semana_4.Xml
         }
 
         // Recorre y procesa cada celda contagiada de la rejilla
-        private static void ProcesarCeldas(XmlNode rejilla)
+        private static void ProcesarCeldas(XmlNode rejilla, Paciente paciente)
         {
             int contador = 0;
             
@@ -84,7 +88,7 @@ namespace Semana_4.Xml
                     if (fila != null && columna != null)
                     {
                         Celda celda = new Celda(int.Parse(fila), int.Parse(columna));
-                        //celda.ImprimirDatosCelda();
+                        paciente.AgregarCelda(celda);
                         contador++;
                     }
                 }

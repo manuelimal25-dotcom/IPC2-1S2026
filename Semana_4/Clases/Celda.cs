@@ -29,9 +29,7 @@ namespace Semana_4.Clases
 
         public void ImprimirDatosCelda()
         {
-            Console.WriteLine("----------------------------");
-            Console.WriteLine($"Fila: {fila}");
-            Console.WriteLine($"Columna: {columna}");
+            Console.WriteLine($"FilaxColumna: {fila}x{columna}");
         }
     }
 }

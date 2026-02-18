@@ -41,6 +41,9 @@ public static class Program
                 case "8":
                     ImprimirMatrizPaciente(ListaPacientes);
                     break;
+                case "9":
+                    LimpiarLista(ListaPacientes);
+                    break;
                 case "0":
                     continuar = false;
                     Console.WriteLine("Saliendo del programa...");
@@ -66,6 +69,7 @@ public static class Program
         Console.WriteLine("6. Tamaño de la Lista");
         Console.WriteLine("7. Imprimir Celdas Contagiadas de un Paciente");
         Console.WriteLine("8. Imprimir Matriz de un Paciente");
+        Console.WriteLine("9. Limpiar Lista De Paciente");
         Console.WriteLine("0. Salir");
         Console.WriteLine("--------------------------------");
         Console.Write("Opción: ");
@@ -138,6 +142,12 @@ public static class Program
         {
             Console.WriteLine($"Paciente '{nombrePaciente}' no encontrado en la lista.");
         }
+    }
+
+    public static void LimpiarLista(ListaSimple listaPacientes)
+    {
+        Console.WriteLine("Limpiando la lista de pacientes.");
+        listaPacientes.LimpiarLista();
     }
 
 }

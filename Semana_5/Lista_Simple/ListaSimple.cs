@@ -1,6 +1,6 @@
 using Semana_5.Lista_Simple;
 using Semana_5.Clases;
-
+using Semana_5.Grafica;
 namespace Semana_5.Lista_Simple
 {
     public class ListaSimple
@@ -118,5 +118,60 @@ namespace Semana_5.Lista_Simple
             Console.WriteLine("Lista limpiada exitosamente.");
         }
         
+        public void GraficarLista()
+        {
+            if (cabeza == null)
+            {
+                Console.WriteLine("La lista está vacía. No se puede graficar.");
+                return;
+            }
+
+            string rutaArchivoDot = "lista_simple.dot";
+            // SreamWriter: Clase que permite escribir texto en un archivo de manera eficiente
+            using (StreamWriter sw = new StreamWriter(rutaArchivoDot))
+            {
+                sw.WriteLine("digraph ListaSimple {");
+                sw.WriteLine("    // Configuración general");
+                sw.WriteLine("    bgcolor=\"#f5f5f5\";");
+                sw.WriteLine("    label=\"Lista Simple de Pacientes\";");
+                sw.WriteLine("    labelloc=t;");
+                sw.WriteLine("    fontsize=24;");
+                sw.WriteLine("    fontcolor=\"#1565c0\";");
+                sw.WriteLine("    fontname=\"Helvetica Bold\";");
+                sw.WriteLine("    node [fontname=\"Helvetica\"];");
+                sw.WriteLine("    edge [fontname=\"Helvetica\"];");
+                sw.WriteLine();
+
+                Nodo? actual = cabeza;
+                int indice = 0;
+                
+                // Generar cada nodo de paciente
+                while (actual != null)
+                {
+                    sw.WriteLine(actual.GetDato().DatosPacienteGraphviz($"node{indice}"));
+                    actual = actual.GetSiguiente();
+                    indice++;
+                }
+
+                sw.WriteLine();
+                
+                // Conectar los nodos con flechas para mostrar la dirección de la lista
+                for (int i = 0; i < indice - 1; i++)
+                {
+                    sw.WriteLine($"    node{i} -> node{i + 1} [");
+                    sw.WriteLine($"        color=\"#1976d2\",");
+                    sw.WriteLine($"        penwidth=2.5,");
+                    sw.WriteLine($"        arrowsize=1.2");
+                    sw.WriteLine($"    ];");
+                }
+
+                sw.WriteLine("}");
+            }
+
+            Console.WriteLine($"Archivo DOT creado exitosamente en: {rutaArchivoDot}");
+            GeneradorGrafica generador = new GeneradorGrafica();
+            generador.GenerarGrafica(rutaArchivoDot);
+        }
+
     }
 }

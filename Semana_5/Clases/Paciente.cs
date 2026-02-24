@@ -1,4 +1,5 @@
 using Semana_5.Lista_Doble;
+using System.Text;
 namespace Semana_5.Clases
 {
     public class Paciente
@@ -52,6 +53,30 @@ namespace Semana_5.Clases
             Console.WriteLine($"Edad: {edad}");
             Console.WriteLine($"Periodos: {periodos}");
             Console.WriteLine($"Matriz: {matriz}");
+        }
+
+        // Genera el código Graphviz para un paciente
+        public string DatosPacienteGraphviz(string nombreNodo)
+        {
+            // StringBuilder: Clase que facilita la construcción de cadenas de texto de manera eficiente
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"    {nombreNodo} [");
+            sb.AppendLine($"        shape=record,");
+            sb.AppendLine($"        style=\"filled,rounded\",");
+            sb.AppendLine($"        fillcolor=\"lightblue:white\",");
+            sb.AppendLine($"        gradientangle=90,");
+            sb.AppendLine($"        color=\"#1976d2\",");
+            sb.AppendLine($"        penwidth=2,");
+            sb.AppendLine($"        label=\"{{");
+            sb.AppendLine($"            <nombre> Nombre: {nombre} |");
+            sb.AppendLine($"            <edad> Edad: {edad} |");
+            sb.AppendLine($"            <periodos> Períodos: {periodos} |");
+            sb.AppendLine($"            <matriz> Matriz: {matriz}x{matriz} |");
+            sb.AppendLine($"        }}\"");
+            sb.AppendLine($"    ];");
+            // Devuelve el código Graphviz generado como una cadena
+            return sb.ToString();
         }
 
         public void AgregarCelda(Celda celda)

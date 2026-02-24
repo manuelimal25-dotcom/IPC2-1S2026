@@ -27,7 +27,7 @@ public static class Program
                     EliminarPaciente(ListaPacientes);
                     break;
                 case "4":
-                    ListaPacientes.RecorrerLista();
+                    ListaPacientes.GraficarLista();
                     break;
                 case "5":
                     BuscarPaciente(ListaPacientes);
@@ -64,7 +64,7 @@ public static class Program
         Console.WriteLine("1. Leer Archivo XML");
         Console.WriteLine("2. Escribir Archivo XML");
         Console.WriteLine("3. Eliminar Paciente de la Lista");
-        Console.WriteLine("4. Recorrer Lista de Pacientes");
+        Console.WriteLine("4. Graficar Lista de Pacientes");
         Console.WriteLine("5. Buscar Paciente por Nombre");
         Console.WriteLine("6. Tamaño de la Lista");
         Console.WriteLine("7. Imprimir Celdas Contagiadas de un Paciente");

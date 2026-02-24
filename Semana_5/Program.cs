@@ -24,25 +24,10 @@ public static class Program
                     EscribirArchivo();
                     break;
                 case "3":
-                    EliminarPaciente(ListaPacientes);
-                    break;
-                case "4":
                     ListaPacientes.GraficarLista();
                     break;
-                case "5":
-                    BuscarPaciente(ListaPacientes);
-                    break;
-                case "6":
-                    Console.WriteLine($"Tamaño de la lista: {ListaPacientes.GetTamanio()}");
-                    break;
-                case "7":
-                    ImpirmirCeldasPaciente(ListaPacientes);
-                    break;
-                case "8":
-                    ImprimirMatrizPaciente(ListaPacientes);
-                    break;
-                case "9":
-                    LimpiarLista(ListaPacientes);
+                case "4":
+                    GraficarMatrizPaciente(ListaPacientes);
                     break;
                 case "0":
                     continuar = false;
@@ -63,13 +48,8 @@ public static class Program
         Console.WriteLine("--------------------------------");
         Console.WriteLine("1. Leer Archivo XML");
         Console.WriteLine("2. Escribir Archivo XML");
-        Console.WriteLine("3. Eliminar Paciente de la Lista");
-        Console.WriteLine("4. Graficar Lista de Pacientes");
-        Console.WriteLine("5. Buscar Paciente por Nombre");
-        Console.WriteLine("6. Tamaño de la Lista");
-        Console.WriteLine("7. Imprimir Celdas Contagiadas de un Paciente");
-        Console.WriteLine("8. Imprimir Matriz de un Paciente");
-        Console.WriteLine("9. Limpiar Lista De Paciente");
+        Console.WriteLine("3. Graficar Lista de Pacientes");
+        Console.WriteLine("4. Graficar Matriz de un Paciente");
         Console.WriteLine("0. Salir");
         Console.WriteLine("--------------------------------");
         Console.Write("Opción: ");
@@ -88,66 +68,21 @@ public static class Program
         EscribirXML.EscribirArchivoXML(path);
     }
 
-    public static void EliminarPaciente(ListaSimple ListaPacientes)
+    public static void GraficarMatrizPaciente(ListaSimple listaPacientes)
     {
-        Console.Write("Ingrese el nombre del paciente a eliminar: ");
-        string nombreEliminar = Console.ReadLine() ?? "";
-        ListaPacientes.EliminarPaciente(nombreEliminar);
-    }
-
-    public static void BuscarPaciente(ListaSimple ListaPacientes)
-    {
-        Console.Write("Ingrese el nombre del paciente a buscar: ");
-        string nombreBuscar = Console.ReadLine() ?? "";
-        Nodo? nodoEncontrado = ListaPacientes.BuscarPaciente(nombreBuscar);
-        if (nodoEncontrado != null)
-        {
-            Paciente pacienteEncontrado = nodoEncontrado.GetDato();
-            Console.WriteLine("Paciente encontrado:");
-            pacienteEncontrado.ImprimirDatosPaciente();
-        }
-        else
-        {
-            Console.WriteLine($"Paciente '{nombreBuscar}' no encontrado en la lista.");
-        }
-    }
-
-    public static void ImpirmirCeldasPaciente(ListaSimple ListaPacientes)
-    {
-        Console.Write("Ingrese el nombre del paciente para imprimir sus celdas contagiadas: ");
+        Console.Write("Ingrese el nombre del paciente para graficar su matriz: ");
         string nombrePaciente = Console.ReadLine() ?? "";
-        Nodo? nodoPaciente = ListaPacientes.BuscarPaciente(nombrePaciente);
+        
+        Nodo? nodoPaciente = listaPacientes.BuscarPaciente(nombrePaciente);
+        
         if (nodoPaciente != null)
         {
             Paciente paciente = nodoPaciente.GetDato();
-            paciente.ImprimirCeldas();
+            paciente.GraficarMatriz(); 
         }
         else
         {
             Console.WriteLine($"Paciente '{nombrePaciente}' no encontrado en la lista.");
         }
     }
-
-    public static void ImprimirMatrizPaciente(ListaSimple ListaPacientes)
-    {
-        Console.Write("Ingrese el nombre del paciente para imprimir su matriz: ");
-        string nombrePaciente = Console.ReadLine() ?? "";
-        Nodo? nodoPaciente = ListaPacientes.BuscarPaciente(nombrePaciente);
-        if (nodoPaciente != null)
-        {
-            Paciente paciente = nodoPaciente.GetDato();
-            paciente.ImprimirMatriz();
-        }
-        else
-        {
-            Console.WriteLine($"Paciente '{nombrePaciente}' no encontrado en la lista.");
-        }
-    }
-
-    public static void LimpiarLista(ListaSimple listaPacientes)
-    {
-        Console.WriteLine("Limpiando la lista de pacientes.");
-        listaPacientes.LimpiarLista();
-    }
-
 }

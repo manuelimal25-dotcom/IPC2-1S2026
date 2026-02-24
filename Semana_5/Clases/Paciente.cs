@@ -1,5 +1,6 @@
 using Semana_5.Lista_Doble;
 using System.Text;
+using Semana_5.Grafica;
 namespace Semana_5.Clases
 {
     public class Paciente
@@ -46,16 +47,6 @@ namespace Semana_5.Clases
             this.periodos = periodos;
         }
 
-        public void ImprimirDatosPaciente()
-        {
-            Console.WriteLine("----------------------------");
-            Console.WriteLine($"Nombre: {nombre}");
-            Console.WriteLine($"Edad: {edad}");
-            Console.WriteLine($"Periodos: {periodos}");
-            Console.WriteLine($"Matriz: {matriz}");
-        }
-
-        // Genera el código Graphviz para un paciente
         public string DatosPacienteGraphviz(string nombreNodo)
         {
             // StringBuilder: Clase que facilita la construcción de cadenas de texto de manera eficiente
@@ -84,41 +75,87 @@ namespace Semana_5.Clases
             this.celdas.Insertar(celda);
         }
 
-        public void ImprimirCeldas()
+        public void GraficarMatriz()
         {
-            Console.WriteLine("Recorrido Normal de Celdas Contagiadas:");
-            celdas.Recorrer();
-            Console.WriteLine("Recorrido Inverso de Celdas Contagiadas:");
-            celdas.RecorrerInverso();
-        }
-
-        public void ImprimirMatriz()
-        {
-            Console.WriteLine($"-------------------");
-            Console.WriteLine($"Matriz {matriz}x{matriz} - Paciente: {nombre}");
-            Console.WriteLine();
-
-            // Recorrer cada fila
-            for (int fila = 1; fila <= matriz; fila++)
+            string rutaArchivoDot = $"matriz_{nombre}.dot";
+            
+            using (StreamWriter writer = new StreamWriter(rutaArchivoDot))
             {
-                // Recorrer cada columna de la fila actual
-                for (int columna = 1; columna <= matriz; columna++)
+                writer.WriteLine("digraph Matriz {");
+                writer.WriteLine("    // Configuración general");
+                writer.WriteLine("    bgcolor=\"#f5f5f5\";");
+                writer.WriteLine($"    label=\"Paciente: {nombre}\\nMatriz {matriz}x{matriz}\";");
+                writer.WriteLine("    labelloc=t;");
+                writer.WriteLine("    fontsize=20;");
+                writer.WriteLine("    fontcolor=\"#1565c0\";");
+                writer.WriteLine("    fontname=\"Helvetica Bold\";");
+                writer.WriteLine("    node [shape=square, width=0.6, height=0.6, fixedsize=true, fontsize=14, fontname=\"Courier Bold\"];");
+                writer.WriteLine("    ranksep=0.3;");  // Separación vertical entre filas
+                writer.WriteLine("    nodesep=0.3;");  // Separación horizontal entre columnas
+                writer.WriteLine();
+                
+                // Crear cada celda de la matriz
+                for (int fila = 1; fila <= matriz; fila++)
                 {
-                    // Buscar si existe esta celda en la lista de contagiadas
-                    Celda? celda = celdas.Buscar(fila, columna);
-                    
-                    if (celda != null)
+                    for (int columna = 1; columna <= matriz; columna++)
                     {
-                        Console.Write("1 "); // Contagiada
-                    }
-                    else
-                    {
-                        Console.Write("0 "); // Sana
+                        Celda? celda = celdas.Buscar(fila, columna);
+                        string nombreNodo = $"f{fila}_c{columna}";
+                        
+                        if (celda != null)
+                        {
+                            writer.WriteLine($"    {nombreNodo} [label=\"1\", style=filled, fillcolor=\"#ef5350\", fontcolor=\"white\"];");
+                        }
+                        else
+                        {
+                            writer.WriteLine($"    {nombreNodo} [label=\"0\", style=filled, fillcolor=\"#66bb6a\", fontcolor=\"white\"];");
+                        }
                     }
                 }
-                Console.WriteLine();
+                
+                writer.WriteLine();
+                
+                // Conexiones invisibles VERTICALES (mantener orden arriba-abajo)
+                for (int fila = 1; fila <= matriz; fila++)
+                {
+                    writer.Write($"    {{ rank=same; ");
+                    for (int columna = 1; columna <= matriz; columna++)
+                    {
+                        writer.Write($"f{fila}_c{columna}");
+                        if (columna < matriz) writer.Write("; ");
+                    }
+                    writer.WriteLine(" }");
+                }
+                
+                writer.WriteLine();
+                
+                // Conexiones invisibles HORIZONTALES (mantener orden izquierda-derecha)
+                for (int fila = 1; fila <= matriz; fila++)
+                {
+                    for (int columna = 1; columna < matriz; columna++)
+                    {
+                        writer.WriteLine($"    f{fila}_c{columna} -> f{fila}_c{columna + 1} [style=invis, weight=10];");
+                    }
+                }
+                
+                writer.WriteLine();
+                
+                // Conexiones invisibles para mantener la estructura de la matriz 
+                for (int columna = 1; columna <= matriz; columna++)
+                {
+                    for (int fila = 1; fila < matriz; fila++)
+                    {
+                        writer.WriteLine($"    f{fila}_c{columna} -> f{fila + 1}_c{columna} [style=invis, weight=10];");
+                    }
+                }
+                
+                writer.WriteLine("}");
             }
-            Console.WriteLine($"-------------------");
+            
+            Console.WriteLine($"Archivo DOT creado exitosamente en: {rutaArchivoDot}");
+            
+            GeneradorGrafica generador = new GeneradorGrafica();
+            generador.GenerarGrafica(rutaArchivoDot);
         }
     }
 

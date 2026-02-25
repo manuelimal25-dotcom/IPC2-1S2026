@@ -63,7 +63,7 @@ namespace Semana_5.Clases
             sb.AppendLine($"            <nombre> Nombre: {nombre} |");
             sb.AppendLine($"            <edad> Edad: {edad} |");
             sb.AppendLine($"            <periodos> Períodos: {periodos} |");
-            sb.AppendLine($"            <matriz> Matriz: {matriz}x{matriz} |");
+            sb.AppendLine($"            <matriz> Matriz: {matriz}x{matriz} ");
             sb.AppendLine($"        }}\"");
             sb.AppendLine($"    ];");
             // Devuelve el código Graphviz generado como una cadena

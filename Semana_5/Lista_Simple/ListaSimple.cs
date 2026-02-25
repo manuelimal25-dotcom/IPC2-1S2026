@@ -90,7 +90,7 @@ namespace Semana_5.Lista_Simple
             while (actual != null)
             {
                 Paciente paciente = actual.GetDato();
-                paciente.ImprimirDatosPaciente();
+                //paciente.ImprimirDatosPaciente();
                 actual = actual.GetSiguiente();
             }
         }

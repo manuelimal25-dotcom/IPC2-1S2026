@@ -69,16 +69,22 @@ namespace Semana_7
                 return "Cola vacía";
             }
 
-            string resultado = "";
+            string resultado = "COLA DE PERSONAS\n";
+            resultado += "--------------------------------------\n";
+            
             NodoPersona? actual = frente;
+            int posicion = 1;
 
             while (actual != null)
             {
-                resultado += actual.GetDato().ToString() + "\n";
+                resultado += $"{posicion}. {actual.GetDato().ToString()}\n"; 
                 actual = actual.GetSiguiente();
+                posicion++;
             }
-
+            
+            resultado += "--------------------------------------";
             return resultado;
         }
+
     }
 }

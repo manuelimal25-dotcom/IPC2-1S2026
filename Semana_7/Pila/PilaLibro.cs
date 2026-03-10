@@ -53,15 +53,20 @@ namespace Semana_7
                 return "Pila vacía";
             }
 
-            string resultado = "";
+            string resultado = "PILA DE LIBROS\n";
+            resultado += "--------------------------------------\n";
+            
             NodoLibro? actual = tope;
+            int posicion = 1;
 
             while (actual != null)
             {
-                resultado += actual.GetDato().ToString() + "\n";
+                resultado += $"{posicion}. {actual.GetDato().ToString()}\n";
                 actual = actual.GetSiguiente();
+                posicion++;
             }
-
+            
+            resultado += "--------------------------------------";
             return resultado;
         }
     }

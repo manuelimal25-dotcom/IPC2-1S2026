@@ -13,7 +13,7 @@ namespace Semana_7
         private Button btnPush;
         private Button btnPop;
         private Button btnPeek;
-        private TextBox txtResultado;
+        private RichTextBox txtResultado;
         private Label lblTitulo;
         private Label lblAutor;
         private Label lblResultado;
@@ -93,13 +93,16 @@ namespace Semana_7
             lblResultado.AutoSize = true;
             this.Controls.Add(lblResultado);
 
-            // TextBox - Mostrar contenido de la pila
-            txtResultado = new TextBox();
+            // RichTextBox - Mostrar contenido de la pila 
+            txtResultado = new RichTextBox();  
             txtResultado.Location = new Point(30, 245);
             txtResultado.Size = new Size(420, 220);
-            txtResultado.Multiline = true;
-            txtResultado.ScrollBars = ScrollBars.Vertical;
             txtResultado.ReadOnly = true;
+            txtResultado.Font = new System.Drawing.Font("Consolas", 10);
+            txtResultado.BackColor = System.Drawing.Color.White;
+            txtResultado.BorderStyle = BorderStyle.FixedSingle;
+            txtResultado.WordWrap = false;  
+            txtResultado.ScrollBars = RichTextBoxScrollBars.Vertical; 
             this.Controls.Add(txtResultado);
         }
 

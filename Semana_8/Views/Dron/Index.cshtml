@@ -1,4 +1,4 @@
-@* @model ListaDrones *@
+@model ListaDrones
 
 @{
     ViewData["Title"] = "Gestión de Drones";
@@ -18,9 +18,7 @@
     </button>
 </form>
 
-<textarea class="cuadro-texto-dron" readonly>
-@* Aquí irá la lista de drones *@
-</textarea>
+<textarea class="cuadro-texto-dron" readonly>@Model.ObtenerDronesTexto()</textarea>
 
 <div class="contenedor-botones">
     <form method="post" asp-action="MostrarLista">

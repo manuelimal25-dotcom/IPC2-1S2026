@@ -1,0 +1,54 @@
+/* Gestión de Drones */
+
+/* Formulario de agregar dron */
+.formulario-dron {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.formulario-grupo-dron {
+    flex: 1;
+}
+
+.formulario-grupo-dron label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.formulario-grupo-dron input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    border: 1px solid #ccc;
+}
+
+/* Botones específicos de drones */
+.btn-agregar-dron {
+    width: 230px;
+}
+
+.btn-ver-listado-dron {
+    width: 230px;
+}
+
+.btn-salir-dron {
+    width: 230px;
+}
+
+/* Área de texto para lista de drones */
+.cuadro-texto-dron {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+    background-color: white;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    resize: none;
+}

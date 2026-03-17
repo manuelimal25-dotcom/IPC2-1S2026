@@ -4,46 +4,41 @@
     ViewData["Title"] = "Gestión de Mensajes";
 }
 
-<!-- Título de la sección -->
+<link rel="stylesheet" href="~/css/mensaje.css" />
+
 <h1 class="titulo-seccion">Gestión De Mensajes</h1>
 
-<!-- Formulario para buscar mensaje -->
-<form method="post" asp-action="MostrarInformacion">
-    <div style="display: flex; gap: 10px; align-items: flex-end;">
-        <div class="formulario-grupo">
-            <label>Escribe el Nombre del Mensaje:</label>
-            <input type="text" name="nombreMensaje" required />
-        </div>
-        <button type="submit" class="btn-accion" style="width: 230px; font-size: 10px;">
-            Mostrar Información Mensaje
-        </button>
+<form method="post" asp-action="MostrarInformacion" class="formulario-mensaje">
+    <div class="formulario-grupo-mensaje">
+        <label>Escribe el Nombre del Mensaje:</label>
+        <input type="text" name="nombreMensaje" required />
     </div>
+    <button type="submit" class="btn-accion btn-mostrar-info-mensaje">
+        Mostrar Información Mensaje
+    </button>
 </form>
 
-<!-- Botón para graficar instrucciones -->
-<form method="post" asp-action="GraficarInstrucciones" style="margin-top: 10px;">
-    <div class="formulario-grupo">
+<form method="post" asp-action="GraficarInstrucciones">
+    <div class="formulario-grupo-mensaje">
         <input type="text" name="nombreMensaje" placeholder="Nombre del mensaje" required />
     </div>
-    <button type="submit" class="btn-accion" style="width: 230px; font-size: 10px;">
+    <button type="submit" class="btn-accion btn-graficar-mensaje">
         Gráficar Instrucciones Mensaje
     </button>
 </form>
 
-<!-- Área de texto para mostrar información -->
-<textarea class="cuadro-texto" readonly>
+<textarea class="cuadro-texto-mensaje" readonly>
 @* Aquí irá la información del mensaje *@
 </textarea>
 
-<!-- Botones de acción -->
 <div class="contenedor-botones">
     <form method="post" asp-action="MostrarLista">
-        <button type="submit" class="btn-accion" style="width: 230px;">
+        <button type="submit" class="btn-accion btn-ver-listado-mensaje">
             Ver Listado Mensajes
         </button>
     </form>
     
     <a href="@Url.Action("Index", "Home")">
-        <button class="btn-accion" style="width: 230px;">Salir</button>
+        <button class="btn-accion btn-salir-mensaje">Salir</button>
     </a>
 </div>

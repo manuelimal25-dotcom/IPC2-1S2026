@@ -1,0 +1,25 @@
+/* Gestión de Sistemas de Drones */
+
+/* Contenedor de la imagen de Graphviz */
+.contenedor-imagen-sistema {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contenedor-imagen-sistema img {
+    max-width: 100%;
+    border: 2px solid #054279;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-imagen-sistema p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Botón salir de sistema */
+.btn-salir-sistema {
+    width: 230px;
+    margin-top: 30px;
+}

@@ -1,0 +1,15 @@
+/* Página Principal - Bienvenida */
+
+.contenedor-bienvenida {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.contenedor-bienvenida h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contenedor-bienvenida p {
+    font-size: 14px;
+}

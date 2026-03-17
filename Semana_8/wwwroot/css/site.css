@@ -1,7 +1,4 @@
-/*  ========================================
-    VARIABLES CSS
-    Definen colores principales del sistema
-    ======================================== */
+/* Variables CSS Globales */
 :root {
     --color-primario: #054279;
     --color-secundario: #4a6eb0;
@@ -11,9 +8,7 @@
     --color-contenido: #43b6d5;
 }
 
-/* ========================================
-    ESTILOS GLOBALES
-   ======================================== */
+/* Estilos Globales */
 * {
     margin: 0;
     padding: 0;
@@ -25,9 +20,7 @@ body {
     background-color: var(--color-fondo);
 }
 
-/* ========================================
-   ENCABEZADO PRINCIPAL
-   ======================================== */
+/* Encabezado Principal */
 .header {
     background-color: var(--color-titulo);
     color: white;
@@ -37,18 +30,13 @@ body {
     font-family: "Trebuchet MS", sans-serif;
 }
 
-/* ========================================
-   CONTENEDOR PRINCIPAL
-   Utiliza Flexbox para dividir en menu y contenido
-   ======================================== */
+/* Contenedor Principal - Usa Flexbox para dividir en menú y contenido */
 .container-principal {
     display: flex;
-    height: calc(100vh - 50px); /* Altura total menos header */
+    height: calc(100vh - 50px);
 }
 
-/* ========================================
-   MENÚ LATERAL
-   ======================================== */
+/* Menú Lateral */
 .menu-lateral {
     width: 230px;
     background-color: var(--color-primario);
@@ -66,31 +54,26 @@ body {
     font-size: 13px;
     font-family: Verdana, sans-serif;
     cursor: pointer;
-    transition: background-color 0.3s; /* Transición suave al hacer hover */
+    transition: background-color 0.3s;
 }
 
 .menu-lateral button:hover {
     background-color: var(--color-hover);
 }
 
-/* Eliminar decoración de enlaces */
 .menu-lateral a {
     text-decoration: none;
 }
 
-/* ========================================
-   ÁREA DE CONTENIDO
-   ======================================== */
+/* Área de Contenido */
 .contenido {
-    flex: 1; /* Ocupa el espacio restante */
+    flex: 1;
     padding: 20px;
     background-color: var(--color-contenido);
-    overflow-y: auto; /* Scroll vertical si el contenido es largo */
+    overflow-y: auto;
 }
 
-/* ========================================
-   TÍTULOS DE SECCIONES
-   ======================================== */
+/* Títulos de Secciones */
 .titulo-seccion {
     text-align: center;
     font-size: 15px;
@@ -98,30 +81,7 @@ body {
     color: black;
 }
 
-/* ========================================
-   FORMULARIOS
-   ======================================== */
-.formulario-grupo {
-    margin-bottom: 20px;
-}
-
-.formulario-grupo label {
-    display: block;
-    font-size: 11px;
-    margin-bottom: 5px;
-}
-
-.formulario-grupo input[type="text"] {
-    width: 230px;
-    padding: 8px;
-    font-size: 11px;
-    font-family: Verdana, sans-serif;
-    border: 1px solid #ccc;
-}
-
-/* ========================================
-   BOTONES DE ACCIÓN
-   ======================================== */
+/* Botones de Acción Generales */
 .btn-accion {
     padding: 10px 20px;
     background-color: var(--color-secundario);
@@ -137,107 +97,9 @@ body {
     background-color: var(--color-hover);
 }
 
-/* ========================================
-   ÁREA DE TEXTO (CUADRO DE RESULTADOS)
-   ======================================== */
-.cuadro-texto {
-    width: 100%;
-    height: 300px;
-    padding: 10px;
-    font-size: 10px;
-    font-family: Verdana, sans-serif;
-    background-color: white;
-    border: 1px solid #ccc;
-    overflow-y: scroll; /* Scroll vertical */
-    resize: none; /* No redimensionable */
-}
-
-/* ========================================
-   TABLAS
-   ======================================== */
-.tabla-datos {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    margin-top: 20px;
-}
-
-.tabla-datos th,
-.tabla-datos td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.tabla-datos th {
-    background-color: var(--color-secundario);
-    color: white;
-    font-weight: bold;
-}
-
-/* ========================================
-   SECCIÓN DE AYUDA
-   ======================================== */
-.info-estudiante {
-    margin-top: 20px;
-}
-
-.info-estudiante p {
-    font-size: 13px;
-    margin-bottom: 15px;
-}
-
-.enlace-documentacion {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.enlace-documentacion:hover {
-    color: darkblue;
-}
-
-/* ========================================
-   CONTENEDOR DE BOTONES
-   Alinea botones horizontalmente
-   ======================================== */
+/* Contenedor de Botones - Alinea botones horizontalmente */
 .contenedor-botones {
     display: flex;
-    gap: 20px; /* Espacio entre botones */
+    gap: 20px;
     margin-top: 20px;
-}
-
-/* ========================================
-   PÁGINA DE AYUDA
-   ======================================== */
-.contenedor-ayuda {
-    text-align: center;
-    margin-top: 200px;
-}
-
-.contenedor-ayuda h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.contenedor-ayuda p {
-    font-size: 14px;
-}
-
-/* ========================================
-   PÁGINA PRINCIPAL (BIENVENIDA)
-   ======================================== */
-.contenedor-bienvenida {
-    text-align: center;
-    margin-top: 200px;
-}
-
-.contenedor-bienvenida h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.contenedor-bienvenida p {
-    font-size: 14px;
 }

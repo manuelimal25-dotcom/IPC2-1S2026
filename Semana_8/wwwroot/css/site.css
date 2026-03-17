@@ -1,0 +1,243 @@
+/*  ========================================
+    VARIABLES CSS
+    Definen colores principales del sistema
+    ======================================== */
+:root {
+    --color-primario: #054279;
+    --color-secundario: #4a6eb0;
+    --color-hover: grey;
+    --color-fondo: white;
+    --color-titulo: #085879;
+    --color-contenido: #43b6d5;
+}
+
+/* ========================================
+    ESTILOS GLOBALES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    background-color: var(--color-fondo);
+}
+
+/* ========================================
+   ENCABEZADO PRINCIPAL
+   ======================================== */
+.header {
+    background-color: var(--color-titulo);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   Utiliza Flexbox para dividir en menu y contenido
+   ======================================== */
+.container-principal {
+    display: flex;
+    height: calc(100vh - 50px); /* Altura total menos header */
+}
+
+/* ========================================
+   MENÚ LATERAL
+   ======================================== */
+.menu-lateral {
+    width: 230px;
+    background-color: var(--color-primario);
+    padding: 10px;
+}
+
+/* Botones del menú lateral */
+.menu-lateral button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-family: Verdana, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al hacer hover */
+}
+
+.menu-lateral button:hover {
+    background-color: var(--color-hover);
+}
+
+/* Eliminar decoración de enlaces */
+.menu-lateral a {
+    text-decoration: none;
+}
+
+/* ========================================
+   ÁREA DE CONTENIDO
+   ======================================== */
+.contenido {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 20px;
+    background-color: var(--color-contenido);
+    overflow-y: auto; /* Scroll vertical si el contenido es largo */
+}
+
+/* ========================================
+   TÍTULOS DE SECCIONES
+   ======================================== */
+.titulo-seccion {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+/* ========================================
+   FORMULARIOS
+   ======================================== */
+.formulario-grupo {
+    margin-bottom: 20px;
+}
+
+.formulario-grupo label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.formulario-grupo input[type="text"] {
+    width: 230px;
+    padding: 8px;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    border: 1px solid #ccc;
+}
+
+/* ========================================
+   BOTONES DE ACCIÓN
+   ======================================== */
+.btn-accion {
+    padding: 10px 20px;
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-accion:hover {
+    background-color: var(--color-hover);
+}
+
+/* ========================================
+   ÁREA DE TEXTO (CUADRO DE RESULTADOS)
+   ======================================== */
+.cuadro-texto {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+    background-color: white;
+    border: 1px solid #ccc;
+    overflow-y: scroll; /* Scroll vertical */
+    resize: none; /* No redimensionable */
+}
+
+/* ========================================
+   TABLAS
+   ======================================== */
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.tabla-datos th {
+    background-color: var(--color-secundario);
+    color: white;
+    font-weight: bold;
+}
+
+/* ========================================
+   SECCIÓN DE AYUDA
+   ======================================== */
+.info-estudiante {
+    margin-top: 20px;
+}
+
+.info-estudiante p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.enlace-documentacion {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.enlace-documentacion:hover {
+    color: darkblue;
+}
+
+/* ========================================
+   CONTENEDOR DE BOTONES
+   Alinea botones horizontalmente
+   ======================================== */
+.contenedor-botones {
+    display: flex;
+    gap: 20px; /* Espacio entre botones */
+    margin-top: 20px;
+}
+
+/* ========================================
+   PÁGINA DE AYUDA
+   ======================================== */
+.contenedor-ayuda {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.contenedor-ayuda h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contenedor-ayuda p {
+    font-size: 14px;
+}
+
+/* ========================================
+   PÁGINA PRINCIPAL (BIENVENIDA)
+   ======================================== */
+.contenedor-bienvenida {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.contenedor-bienvenida h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contenedor-bienvenida p {
+    font-size: 14px;
+}

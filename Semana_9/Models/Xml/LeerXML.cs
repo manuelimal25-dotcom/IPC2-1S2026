@@ -4,7 +4,7 @@ namespace Semana_8.Models
 {
     public static class LeerXML
     {
-        public static void LeerArchivoXML(string path, ListaDrones listaDrones, ListaSistemas listaSistemas)
+        public static void LeerArchivoXML(string path, ListaDrones listaDrones, ListaSistemas listaSistemas, ListaMensaje listaMensajes)
         {
             if (!File.Exists(path))
             {
@@ -100,6 +100,57 @@ namespace Semana_8.Models
                         Sistema nuevoSistema = new Sistema(nombreSistema, alturaMaxima, cantidadDrones, listaContenido);
                         listaSistemas.InsertarSistema(nuevoSistema);
                         Console.WriteLine($"Sistema '{nombreSistema}' agregado con su contenido.");
+                    }
+                }
+
+                // Soporta XML con raíz <config> o raíz directa <listaMensajes>
+                XmlNode? listaMensajesNode = raiz.Name == "listaMensajes"
+                    ? raiz
+                    : raiz.SelectSingleNode("listaMensajes");
+
+                if (listaMensajesNode != null)
+                {
+                    foreach (XmlNode mensajeNode in listaMensajesNode.ChildNodes)
+                    {
+                        if (!string.Equals(mensajeNode.Name, "Mensaje", StringComparison.OrdinalIgnoreCase))
+                        {
+                            continue;
+                        }
+
+                        string nombreMensaje = mensajeNode.Attributes?["nombre"]?.Value?.Trim() ?? string.Empty;
+                        string nombreSistema = mensajeNode.SelectSingleNode("sistemaDrones")?.InnerText?.Trim() ?? string.Empty;
+
+                        if (string.IsNullOrWhiteSpace(nombreMensaje) || string.IsNullOrWhiteSpace(nombreSistema))
+                        {
+                            continue;
+                        }
+
+                        ListaInstruccion listaInstrucciones = new ListaInstruccion();
+                        XmlNode? instruccionesNode = mensajeNode.SelectSingleNode("instrucciones");
+
+                        if (instruccionesNode != null)
+                        {
+                            foreach (XmlNode instruccionNode in instruccionesNode.ChildNodes)
+                            {
+                                if (!string.Equals(instruccionNode.Name, "instruccion", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    continue;
+                                }
+
+                                string nombreDron = instruccionNode.Attributes?["dron"]?.Value?.Trim() ?? string.Empty;
+                                string altura = instruccionNode.InnerText?.Trim() ?? string.Empty;
+
+                                if (string.IsNullOrWhiteSpace(nombreDron) || string.IsNullOrWhiteSpace(altura))
+                                {
+                                    continue;
+                                }
+
+                                listaInstrucciones.InsertarInstruccion(new Instruccion(nombreDron, altura));
+                            }
+                        }
+
+                        listaMensajes.InsertarMensaje(new Mensaje(nombreMensaje, nombreSistema, listaInstrucciones));
+                        Console.WriteLine($"Mensaje '{nombreMensaje}' agregado con sus instrucciones.");
                     }
                 }
 

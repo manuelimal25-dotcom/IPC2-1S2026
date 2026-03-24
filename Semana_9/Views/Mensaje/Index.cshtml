@@ -1,4 +1,4 @@
-@* @model ListaMensajes *@
+@model Semana_8.Models.ListaMensaje
 
 @{
     ViewData["Title"] = "Gestión de Mensajes";
@@ -28,7 +28,14 @@
 </form>
 
 <textarea class="cuadro-texto-mensaje" readonly>
-@* Aquí irá la información del mensaje *@
+@if (ViewBag.ListadoMensajes != null)
+{
+@ViewBag.ListadoMensajes
+}
+else
+{
+@:Aquí irá la información del mensaje
+}
 </textarea>
 
 <div class="contenedor-botones">

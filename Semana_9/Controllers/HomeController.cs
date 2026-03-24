@@ -17,6 +17,12 @@ namespace Semana_8.Controllers
             get { return SistemaController.GetListaSistemas(); }
         }
 
+        // Referencia a la lista global de mensajes del MensajeController
+        private static ListaMensaje listaMensajes
+        {
+            get { return MensajeController.GetListaMensajes(); }
+        }
+
         // GET: /Home/Index
         public IActionResult Index()
         {
@@ -74,7 +80,7 @@ namespace Semana_8.Controllers
                     archivoXml.CopyTo(stream);
                 }
                 // Leer el archivo XML
-                LeerXML.LeerArchivoXML(rutaArchivo, listaDrones, listaSistemas);
+                LeerXML.LeerArchivoXML(rutaArchivo, listaDrones, listaSistemas, listaMensajes);
 
                 // Eliminar el archivo temporal
                 if (System.IO.File.Exists(rutaArchivo))
@@ -106,6 +112,7 @@ namespace Semana_8.Controllers
             // Limpiar listas globales
             listaDrones.InicializarLista();
             listaSistemas.InicializarLista();
+            listaMensajes.InicializarLista();
             ViewBag.Mensaje = "Sistema inicializado correctamente.";
             return View("Index");
         }

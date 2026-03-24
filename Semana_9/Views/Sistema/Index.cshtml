@@ -1,3 +1,5 @@
+@model Semana_8.Models.ListaSistemas
+
 @{
     ViewData["Title"] = "Gestión Sistema de Drones";
 }
@@ -7,9 +9,21 @@
 <h1 class="titulo-seccion">Sistemas de Drones Graficados</h1>
 
 <div class="contenedor-imagen-sistema">
-    @if (ViewBag.ImagenGenerada != null && ViewBag.ImagenGenerada == true)
+    @if (Model != null && Model.GetCabeza() != null)
     {
-        <img src="~/images/sistemas_drones.png" alt="Gráfica de Sistemas de Drones" />
+        <div class="grid-imagenes-sistema">
+            @{ var actual = Model.GetCabeza(); }
+            @while (actual != null)
+            {
+                var nombreSistema = actual.GetDato().GetNombreSistema();
+                var rutaImagen = "/images/sistemas/" + nombreSistema + ".png";
+                <div class="tarjeta-sistema">
+                    <img src="@rutaImagen?@DateTime.Now.Ticks" alt="Gráfica de Sistema de Drones" />
+                    <p>@nombreSistema</p>
+                </div>
+                actual = actual.GetSiguiente();
+            }
+        </div>
     }
     else
     {

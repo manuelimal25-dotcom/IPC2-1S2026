@@ -1,0 +1,13 @@
+digraph G {
+    bgcolor="#0000FF44:#FF000044" gradientangle=90
+    label="SDF"
+    node [shape=plaintext]
+    tabla [label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="10">
+        <TR><TD BGCOLOR="#085879"><FONT COLOR="white">Altura</FONT></TD><TD BGCOLOR="#65BABF">1</TD></TR>
+        <TR><TD BGCOLOR="#C81D25"><FONT COLOR="white">DronW</FONT></TD><TD BGCOLOR="#F45059">I</TD></TR>
+        <TR><TD BGCOLOR="#C81D25"><FONT COLOR="white">DronX</FONT></TD><TD BGCOLOR="#F45059">P</TD></TR>
+        <TR><TD BGCOLOR="#C81D25"><FONT COLOR="white">DronY</FONT></TD><TD BGCOLOR="#F45059">C</TD></TR>
+        <TR><TD BGCOLOR="#C81D25"><FONT COLOR="white">DronZ</FONT></TD><TD BGCOLOR="#F45059">2</TD></TR>
+    </TABLE>>];
+}

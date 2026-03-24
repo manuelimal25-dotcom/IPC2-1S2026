@@ -11,7 +11,13 @@ namespace Semana_8.Controllers
             get { return DronController.GetListaDrones(); }
         }
 
-        // GET: /Home/Index (Página principal)
+        // Referencia a la lista global de sistemas del SistemaController
+        private static ListaSistemas listaSistemas
+        {
+            get { return SistemaController.GetListaSistemas(); }
+        }
+
+        // GET: /Home/Index
         public IActionResult Index()
         {
             return View();
@@ -59,6 +65,7 @@ namespace Semana_8.Controllers
                     Directory.CreateDirectory(carpetaTemp);
                 }
 
+                // Ruta completa para guardar el archivo
                 string rutaArchivo = Path.Combine(carpetaTemp, archivoXml.FileName);
 
                 // Guardar el archivo
@@ -66,16 +73,15 @@ namespace Semana_8.Controllers
                 {
                     archivoXml.CopyTo(stream);
                 }
-
-                // Leer el archivo XML y cargar los drones
-                LeerXML.LeerArchivoXML(rutaArchivo, listaDrones);
+                // Leer el archivo XML
+                LeerXML.LeerArchivoXML(rutaArchivo, listaDrones, listaSistemas);
 
                 // Eliminar el archivo temporal
                 if (System.IO.File.Exists(rutaArchivo))
                 {
                     System.IO.File.Delete(rutaArchivo);
                 }
-
+                // Mostrar mensaje de éxito
                 ViewBag.Mensaje = "Archivo XML cargado correctamente.";
                 ViewBag.Tipo = "exito";
             }
@@ -97,8 +103,9 @@ namespace Semana_8.Controllers
         // GET: /Home/Inicializar
         public IActionResult Inicializar()
         {
-            // Limpiar la lista de drones
+            // Limpiar listas globales
             listaDrones.InicializarLista();
+            listaSistemas.InicializarLista();
             ViewBag.Mensaje = "Sistema inicializado correctamente.";
             return View("Index");
         }

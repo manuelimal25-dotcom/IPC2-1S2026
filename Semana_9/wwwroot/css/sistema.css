@@ -23,3 +23,25 @@
     width: 230px;
     margin-top: 30px;
 }
+
+.grid-imagenes-sistema {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.tarjeta-sistema {
+    background-color: #ffffff;
+    border: 1px solid #dbe3ea;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.tarjeta-sistema p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #054279;
+}

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema de Drones</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <!-- Encabezado principal -->
+    <div class="header">
+        Sistema De Drones Del Ejército De Guatemala
+    </div>
+    
+    <!-- Contenedor principal con menú y contenido -->
+    <div class="container-principal">
+        <!-- Menú lateral de navegación -->
+        <nav class="menu-lateral">
+            <a href="@Url.Action("CargarArchivo", "Home")">
+                <button>Cargar Archivo Xml</button>
+            </a>
+            <a href="@Url.Action("GenerarArchivo", "Home")">
+                <button>Generar Archivo Xml</button>
+            </a>
+            <a href="@Url.Action("Index", "Dron")">
+                <button>Gestión De Drones</button>
+            </a>
+            <a href="@Url.Action("Index", "Sistema")">
+                <button style="font-size: 11px;">Gestión Sistema Drones</button>
+            </a>
+            <a href="@Url.Action("Index", "Mensaje")">
+                <button style="font-size: 12px;">Gestión De Mensaje</button>
+            </a>
+            <a href="@Url.Action("Ayuda", "Home")">
+                <button style="font-size: 12px;">Ayuda</button>
+            </a>
+            <a href="@Url.Action("Inicializar", "Home")">
+                <button>Inicializar Sistema</button>
+            </a>
+        </nav>
+        
+        <!-- Área de contenido dinámico -->
+        <main class="contenido">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

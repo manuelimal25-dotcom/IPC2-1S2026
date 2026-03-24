@@ -1,0 +1,71 @@
+/* Formulario de carga */
+.formulario-cargar {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.grupo-archivo {
+    margin-bottom: 20px;
+}
+
+.label-archivo {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-archivo {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    border: 2px dashed #4a6eb0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.input-archivo:hover {
+    background-color: #e8f4f8;
+}
+
+/* Botones específicos */
+.btn-cargar {
+    width: 200px;
+    margin: 10px auto;
+    display: block;
+}
+
+.btn-volver {
+    width: 200px;
+}
+
+.btn-ver-drones {
+    width: 200px;
+}
+
+/* Mensajes de éxito y error */
+.mensaje {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

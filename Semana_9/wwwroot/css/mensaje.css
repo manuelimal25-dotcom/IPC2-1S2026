@@ -1,0 +1,61 @@
+/* Gestión de Mensajes */
+
+/* Formulario de búsqueda de mensaje */
+.formulario-mensaje {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.formulario-grupo-mensaje {
+    flex: 1;
+}
+
+.formulario-grupo-mensaje label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.formulario-grupo-mensaje input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    border: 1px solid #ccc;
+}
+
+/* Botones específicos de mensajes */
+.btn-mostrar-info-mensaje {
+    width: 230px;
+    font-size: 10px;
+}
+
+.btn-graficar-mensaje {
+    width: 230px;
+    font-size: 10px;
+}
+
+.btn-ver-listado-mensaje {
+    width: 230px;
+}
+
+.btn-salir-mensaje {
+    width: 230px;
+}
+
+/* Área de texto para información de mensajes */
+.cuadro-texto-mensaje {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+    background-color: white;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    resize: none;
+    margin-top: 20px;
+}

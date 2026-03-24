@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Cargar Archivo XML";
+}
+
+<link rel="stylesheet" href="~/css/cargar-archivo.css" />
+
+<h1 class="titulo-seccion">Cargar Archivo XML</h1>
+
+<!-- Mostrar mensajes de éxito o error -->
+@if (ViewBag.Mensaje != null)
+{
+    <div class="mensaje @(ViewBag.Tipo == "exito" ? "mensaje-exito" : "mensaje-error")">
+        @ViewBag.Mensaje
+    </div>
+}
+
+<!-- Formulario para cargar archivo -->
+<form method="post" asp-action="ProcesarArchivo" enctype="multipart/form-data" class="formulario-cargar">
+    <div class="grupo-archivo">
+        <label class="label-archivo">Seleccione un archivo XML:</label>
+        <input type="file" name="archivoXml" accept=".xml" required class="input-archivo" />
+    </div>
+    
+    <button type="submit" class="btn-accion btn-cargar">
+        Cargar Archivo
+    </button>
+</form>

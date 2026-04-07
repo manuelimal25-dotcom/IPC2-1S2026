@@ -21,21 +21,6 @@ namespace LibrosAPI.Modelo
 
         [JsonPropertyName("anio")]
         public int Anio { get; set; }
-
-        // Constructor Principal
-        public Libro(string titulo, string autor, decimal precio, int anio)
-        {
-            Id     = Guid.NewGuid().ToString();
-            Titulo = titulo;
-            Autor  = autor;
-            Precio = precio;
-            Anio   = anio;
-        }
-
-        // Constructor vacío requerido por el deserializador JSON
-        public Libro()
-        {
-            Id = Guid.NewGuid().ToString();
-        }
+        
     }
 }

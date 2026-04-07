@@ -43,6 +43,9 @@ namespace LibrosAPI.Servicio
         // Agrega un nuevo libro a la colección.
         public Libro Agregar(Libro libro)
         {
+            // Se ignora cualquier Id enviado por el cliente para garantizar uno valido en el servidor.
+            libro.Id = Guid.NewGuid().ToString();
+
             List<Libro> libros = ObtenerTodos();
             libros.Add(libro);
             Guardar(libros);

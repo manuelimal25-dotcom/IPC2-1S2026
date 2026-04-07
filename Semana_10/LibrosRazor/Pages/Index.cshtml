@@ -26,9 +26,16 @@
                 <td>Q @libro.Precio</td>
                 <td>@libro.Anio</td>
                 <td>
-                    <a class="btn-ver"      href="/Libro/Detalle?id=@libro.Id">Ver</a>
-                    <a class="btn-editar"   href="/Libro/Editar?id=@libro.Id">Editar</a>
-                    <a class="btn-eliminar" href="/Libro/Eliminar?id=@libro.Id">Eliminar</a>
+                    @if (string.IsNullOrWhiteSpace(libro.Id))
+                    {
+                        <span>Sin acciones</span>
+                    }
+                    else
+                    {
+                        <a class="btn-ver"      href="/Libro/Detalle?id=@libro.Id">Ver</a>
+                        <a class="btn-editar"   href="/Libro/Editar?id=@libro.Id">Editar</a>
+                        <a class="btn-eliminar" href="/Libro/Eliminar?id=@libro.Id">Eliminar</a>
+                    }
                 </td>
             </tr>
         }

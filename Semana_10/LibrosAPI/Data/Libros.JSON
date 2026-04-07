@@ -21,10 +21,17 @@
     "anio": 1605
   },
   {
-    "id": "",
+    "id": "ebfbcaf2-ce95-4651-a1c7-f1eb988dd991",
     "titulo": "Manuel",
-    "autor": "Manuel",
-    "precio": 12.0,
-    "anio": 1201
+    "autor": "Mario",
+    "precio": 60.96,
+    "anio": 12
+  },
+  {
+    "id": "6052fab6-8c36-4d0f-b711-6d6a5e771462",
+    "titulo": "Carlos Manuel",
+    "autor": "Juan Pablo",
+    "precio": 12.50,
+    "anio": 5553
   }
 ]

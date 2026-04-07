@@ -1,2 +1,30 @@
 [
+  {
+    "id": "319950c3-85b1-4a53-af96-6bb674f9d54d",
+    "titulo": "El Principito",
+    "autor": "Antoine de Saint-Exupery",
+    "precio": 150.00,
+    "anio": 1943
+  },
+  {
+    "id": "e0da8dca-98a7-4ef8-8084-c3f1be70641c",
+    "titulo": "Cien Anos de Soledad",
+    "autor": "Gabriel Garcia Marquez",
+    "precio": 200.00,
+    "anio": 1967
+  },
+  {
+    "id": "0532300a-55e0-4d13-9b6f-14911351c727",
+    "titulo": "Don Quijote de la Mancha",
+    "autor": "Miguel de Cervantes",
+    "precio": 250.00,
+    "anio": 1605
+  },
+  {
+    "id": "",
+    "titulo": "Manuel",
+    "autor": "Manuel",
+    "precio": 12.0,
+    "anio": 1201
+  }
 ]

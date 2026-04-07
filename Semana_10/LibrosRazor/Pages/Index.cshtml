@@ -1,0 +1,36 @@
+@page
+@model LibrosRazor.Pages.Libros.IndexModel
+
+<link rel="stylesheet" href="~/css/index.css" />
+
+<h2>Lista de Libros</h2>
+
+<a class="btn-agregar" href="/Libro/Crear">Agregar nuevo libro</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Precio</th>
+            <th>Año</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var libro in Model.Libros)
+        {
+            <tr>
+                <td>@libro.Titulo</td>
+                <td>@libro.Autor</td>
+                <td>Q @libro.Precio</td>
+                <td>@libro.Anio</td>
+                <td>
+                    <a class="btn-ver"      href="/Libro/Detalle?id=@libro.Id">Ver</a>
+                    <a class="btn-editar"   href="/Libro/Editar?id=@libro.Id">Editar</a>
+                    <a class="btn-eliminar" href="/Libro/Eliminar?id=@libro.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

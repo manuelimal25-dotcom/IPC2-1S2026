@@ -15,7 +15,7 @@ namespace LibrosAPI.Controllers
     {
         // Inyección de dependencia del servicio de libros para acceder a la lógica de negocio.
         private readonly LibroServicio libroServicio;
-
+        // Constructor que recibe una instancia de LibroServicio a través de la inyección de dependencias.
         public LibrosController(LibroServicio libroServicio)
         {
             this.libroServicio = libroServicio;

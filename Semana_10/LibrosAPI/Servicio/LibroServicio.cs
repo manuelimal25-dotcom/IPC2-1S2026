@@ -5,15 +5,18 @@ namespace LibrosAPI.Servicio
 {
     public class LibroServicio
     {
+        //Define la ubicación del archivo JSON donde se almacenan los datos de los libros.
         private readonly string rutaArchivo;
+        // Configuración para la serialización JSON, como la indentación para mejorar la legibilidad del archivo.
         private readonly JsonSerializerOptions opcionesJson;
-
+        // Constructor que inicializa la ruta del archivo y las opciones de serialización JSON.
         public LibroServicio()
         {
             rutaArchivo = Path.Combine("Data", "Libros.JSON");
             
             opcionesJson = new JsonSerializerOptions
             {
+                // Configura la serialización para que el JSON resultante sea legible con indentación.
                 WriteIndented = true
             };
         }

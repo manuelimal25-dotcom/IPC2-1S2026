@@ -41,13 +41,12 @@ namespace LibrosAPI.Controllers
         }
 
         // POST api/libros
-        // POST api/libros
-[HttpPost]
-public ActionResult<Libro> Agregar([FromBody] Libro libro)
-{
-    Libro libroCreado = libroServicio.Agregar(libro);
-    return Created($"api/libros/{libroCreado.Id}", libroCreado);
-}
+        [HttpPost]
+        public ActionResult<Libro> Agregar([FromBody] Libro libro)
+        {
+            Libro libroCreado = libroServicio.Agregar(libro);
+            return Created($"api/libros/{libroCreado.Id}", libroCreado);
+        }
 
         // PUT api/libros/{id}
         [HttpPut("{id}")]

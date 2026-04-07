@@ -1,37 +1,33 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Text;
 using System.Text.Json;
 
 using LibroModelo = LibrosRazor.Modelo.Libro;
 
 namespace LibrosRazor.Pages.Libro
 {
-    public class EditarModel : PageModel
+    public class EliminarModel : PageModel
     {
-        // Cliente HTTP para leer y actualizar libros.
+        // Cliente HTTP para consultar y eliminar libros.
         private readonly IHttpClientFactory clienteFactory;
 
         [BindProperty]
-        // Modelo enlazado al formulario de edición.
-        public LibroModelo LibroForm { get; set; } = new LibroModelo();
+        // Modelo enlazado para confirmar la eliminación.
+        public LibroModelo Libro { get; set; } = new LibroModelo();
 
         // Mensaje de error para la vista.
         public string MensajeError { get; set; } = string.Empty;
 
-        public EditarModel(IHttpClientFactory clienteFactory)
+        public EliminarModel(IHttpClientFactory clienteFactory)
         {
             this.clienteFactory = clienteFactory;
         }
 
-        // Carga los datos actuales del libro.
+        // Recupera el libro a eliminar.
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (string.IsNullOrWhiteSpace(id))
-            {
-                MensajeError = "El id del libro es invalido.";
                 return RedirectToPage("/Index");
-            }
 
             HttpClient cliente = clienteFactory.CreateClient("LibrosAPI");
             HttpResponseMessage respuesta = await cliente.GetAsync($"api/libros/{id}");
@@ -39,11 +35,11 @@ namespace LibrosRazor.Pages.Libro
             if (!respuesta.IsSuccessStatusCode)
             {
                 MensajeError = "No se encontro el libro solicitado.";
-                return RedirectToPage("/Index");
+                return Page();
             }
 
             string contenido = await respuesta.Content.ReadAsStringAsync();
-            LibroForm = JsonSerializer.Deserialize<LibroModelo>(contenido, new JsonSerializerOptions
+            Libro = JsonSerializer.Deserialize<LibroModelo>(contenido, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             }) ?? new LibroModelo();
@@ -51,21 +47,22 @@ namespace LibrosRazor.Pages.Libro
             return Page();
         }
 
-        // Envía los cambios a la API.
+        // Ejecuta la eliminación en la API.
         public async Task<IActionResult> OnPostAsync()
         {
+            if (string.IsNullOrWhiteSpace(Libro.Id))
+            {
+                MensajeError = "El id del libro es invalido.";
+                return Page();
+            }
+
             HttpClient cliente = clienteFactory.CreateClient("LibrosAPI");
-
-            string contenido = JsonSerializer.Serialize(LibroForm);
-            StringContent peticion = new StringContent(contenido, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage respuesta = await cliente.PutAsync($"api/libros/{LibroForm.Id}", peticion);
+            HttpResponseMessage respuesta = await cliente.DeleteAsync($"api/libros/{Libro.Id}");
 
             if (respuesta.IsSuccessStatusCode)
                 return RedirectToPage("/Index");
 
-            // Se notifica el error sin exponer detalles internos.
-            MensajeError = "Ocurrio un error al actualizar el libro.";
+            MensajeError = "Ocurrio un error al eliminar el libro.";
             return Page();
         }
     }

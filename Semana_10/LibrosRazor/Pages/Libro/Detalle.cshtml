@@ -1,0 +1,35 @@
+@page
+@model LibrosRazor.Pages.Libro.DetalleModel
+
+<link rel="stylesheet" href="~/css/crear.css" />
+
+<h2>Detalle del Libro</h2>
+
+<a href="/Index">Volver a la lista</a>
+
+@if (!string.IsNullOrEmpty(Model.MensajeError))
+{
+    <p class="error">@Model.MensajeError</p>
+}
+else
+{
+    <div class="campo">
+        <label>Titulo</label>
+        <input type="text" value="@Model.Libro.Titulo" readonly />
+    </div>
+
+    <div class="campo">
+        <label>Autor</label>
+        <input type="text" value="@Model.Libro.Autor" readonly />
+    </div>
+
+    <div class="campo">
+        <label>Precio</label>
+        <input type="text" value="Q @Model.Libro.Precio" readonly />
+    </div>
+
+    <div class="campo">
+        <label>Año</label>
+        <input type="text" value="@Model.Libro.Anio" readonly />
+    </div>
+}

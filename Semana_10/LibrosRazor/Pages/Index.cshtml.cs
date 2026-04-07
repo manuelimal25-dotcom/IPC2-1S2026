@@ -8,8 +8,10 @@ namespace LibrosRazor.Pages.Libros
 {
     public class IndexModel : PageModel
     {
+        // Cliente HTTP para consumir la API.
         private readonly IHttpClientFactory clienteFactory;
 
+        // Lista que alimenta la vista principal.
         public List<LibroModelo> Libros { get; set; } = new List<LibroModelo>();
 
         public IndexModel(IHttpClientFactory clienteFactory)
@@ -17,6 +19,7 @@ namespace LibrosRazor.Pages.Libros
             this.clienteFactory = clienteFactory;
         }
 
+        // Carga los libros al abrir la página.
         public async Task OnGetAsync()
         {
             HttpClient cliente = clienteFactory.CreateClient("LibrosAPI");

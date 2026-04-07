@@ -19,19 +19,5 @@
     "autor": "Miguel de Cervantes",
     "precio": 250.00,
     "anio": 1605
-  },
-  {
-    "id": "ebfbcaf2-ce95-4651-a1c7-f1eb988dd991",
-    "titulo": "Manuel",
-    "autor": "Mario",
-    "precio": 60.96,
-    "anio": 12
-  },
-  {
-    "id": "6052fab6-8c36-4d0f-b711-6d6a5e771462",
-    "titulo": "Carlos Manuel",
-    "autor": "Juan Pablo",
-    "precio": 12.50,
-    "anio": 5553
   }
 ]

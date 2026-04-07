@@ -1,0 +1,33 @@
+@page
+@model LibrosRazor.Pages.Libro.EliminarModel
+
+<link rel="stylesheet" href="~/css/crear.css" />
+
+<h2>Eliminar Libro</h2>
+
+<a href="/Index">Volver a la lista</a>
+
+@if (!string.IsNullOrEmpty(Model.MensajeError))
+{
+    <p class="error">@Model.MensajeError</p>
+}
+
+<p>¿Deseas eliminar este libro?</p>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Libro.Id" />
+
+    <div class="campo">
+        <label>Titulo</label>
+        <input type="text" value="@Model.Libro.Titulo" readonly />
+    </div>
+
+    <div class="campo">
+        <label>Autor</label>
+        <input type="text" value="@Model.Libro.Autor" readonly />
+    </div>
+
+    <button type="submit">Confirmar eliminacion</button>
+</form>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BaseDeDatos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Clientes>
+    <Cliente>
+      <NIT>399399-3</NIT>
+      <Nombre>Almacén Guatemalteco</Nombre>
+      <Saldo>0</Saldo>
+    </Cliente>
+    <Cliente>
+      <NIT>123456-7</NIT>
+      <Nombre>Tienda La Esperanza</Nombre>
+      <Saldo>0</Saldo>
+    </Cliente>
+  </Clientes>
+  <Bancos />
+  <Facturas />
+  <Pagos />
+</BaseDeDatos>

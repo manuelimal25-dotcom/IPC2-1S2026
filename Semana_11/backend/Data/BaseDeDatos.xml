@@ -12,7 +12,16 @@
       <Saldo>0</Saldo>
     </Cliente>
   </Clientes>
-  <Bancos />
+  <Bancos>
+    <Banco>
+      <Codigo>1</Codigo>
+      <Nombre>Banco Industrial</Nombre>
+    </Banco>
+    <Banco>
+      <Codigo>2</Codigo>
+      <Nombre>Banco de Guatemala</Nombre>
+    </Banco>
+  </Bancos>
   <Facturas />
   <Pagos />
 </BaseDeDatos>

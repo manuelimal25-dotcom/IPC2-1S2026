@@ -8,6 +8,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<XmlDatabase>();
 builder.Services.AddScoped<ClienteServicio>();
+builder.Services.AddScoped<BancoServicio>();
 
 var app = builder.Build();
 

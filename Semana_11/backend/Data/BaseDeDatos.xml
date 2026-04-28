@@ -2,13 +2,28 @@
 <BaseDeDatos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Clientes>
     <Cliente>
-      <NIT>399399-3</NIT>
+      <NIT>A1B2C3</NIT>
       <Nombre>Almacén Guatemalteco</Nombre>
       <Saldo>0</Saldo>
     </Cliente>
     <Cliente>
-      <NIT>123456-7</NIT>
-      <Nombre>Tienda La Esperanza</Nombre>
+      <NIT>D4E5F6</NIT>
+      <Nombre>Ferretería El Progreso</Nombre>
+      <Saldo>0</Saldo>
+    </Cliente>
+    <Cliente>
+      <NIT>G7H8I9</NIT>
+      <Nombre>Almacén Guatemalteco</Nombre>
+      <Saldo>0</Saldo>
+    </Cliente>
+    <Cliente>
+      <NIT>J1K2L3</NIT>
+      <Nombre>Librería Central</Nombre>
+      <Saldo>0</Saldo>
+    </Cliente>
+    <Cliente>
+      <NIT>M4N5O6</NIT>
+      <Nombre>Farmacia San José</Nombre>
       <Saldo>0</Saldo>
     </Cliente>
   </Clientes>
@@ -19,7 +34,15 @@
     </Banco>
     <Banco>
       <Codigo>2</Codigo>
-      <Nombre>Banco de Guatemala</Nombre>
+      <Nombre>Banco Promerica</Nombre>
+    </Banco>
+    <Banco>
+      <Codigo>3</Codigo>
+      <Nombre>Banco de Desarrollo Rural</Nombre>
+    </Banco>
+    <Banco>
+      <Codigo>4</Codigo>
+      <Nombre>Banco GYT Continental</Nombre>
     </Banco>
   </Bancos>
   <Facturas />

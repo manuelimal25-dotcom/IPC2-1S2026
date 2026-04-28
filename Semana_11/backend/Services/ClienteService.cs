@@ -57,7 +57,7 @@ namespace backend.Services
         private bool ValidarNit(string nit)
         {
             // Valida que el NIT solo contenga caracteres numéricos y guiones
-            return Regex.IsMatch(nit, @"^[0-9\-]+$");
+            return Regex.IsMatch(nit, @"^[a-zA-Z0-9\-]+$");
         }
     }
 }

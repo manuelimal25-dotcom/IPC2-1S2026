@@ -1,0 +1,43 @@
+@page
+@model frontend.Pages.LecturaXml.ConfiguracionModel
+@{
+    ViewData["Title"] = "Cargar Configuración";
+}
+
+<h2>Cargar Archivo de Configuración</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Seleccionar archivo config.xml</label>
+        <input type="file" name="archivo" accept=".xml" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Cargar</button>
+</form>
+
+@if (Model.Procesado)
+{
+    <div class="mt-4">
+        <h4>Respuesta del sistema</h4>
+        <table class="table table-bordered w-auto">
+            <thead class="table-dark">
+                <tr>
+                    <th></th>
+                    <th>Creados</th>
+                    <th>Actualizados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Clientes</td>
+                    <td>@Model.ClientesCreados</td>
+                    <td>@Model.ClientesActualizados</td>
+                </tr>
+                <tr>
+                    <td>Bancos</td>
+                    <td>@Model.BancosCreados</td>
+                    <td>@Model.BancosActualizados</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

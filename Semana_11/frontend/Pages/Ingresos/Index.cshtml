@@ -1,0 +1,96 @@
+@page
+@model frontend.Pages.Ingresos.IndexModel
+@{
+    ViewData["Title"] = "Consultar Ingresos";
+}
+
+<div id="contenido-reporte">
+    <h2>Ingresos por Banco</h2>
+
+    <form method="post" asp-page="/Ingresos/Index">
+        <div class="row g-3 align-items-end mb-4">
+            <div class="col-auto">
+                <label class="form-label">Mes</label>
+                <select name="mes" class="form-select">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label class="form-label">Año</label>
+                <input type="number" name="anio" value="2024" class="form-control" />
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Consultar</button>
+            </div>
+        </div>
+    </form>
+
+    @if (Model.Consultado)
+    {
+        <p class="text-muted">Mes elegido: @Model.MesSeleccionado/@Model.AnioSeleccionado — mostrando últimos 3 meses</p>
+        <canvas id="graficaIngresos"></canvas>
+
+        <button class="btn btn-danger mt-3" onclick="window.print()">
+            Exportar PDF
+        </button>
+    }
+</div>
+
+@section Scripts {
+@if (Model.Consultado)
+{
+<script>
+    // Datos recibidos del backend
+    const ingresos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Ingresos));
+
+    // Extraer bancos y meses únicos
+    const bancos = [...new Set(ingresos.map(i => i.Banco))];
+    const meses  = [...new Set(ingresos.map(i => i.Mes))];
+
+    // Construir datasets, uno por mes
+    const colores = ['#1a237e', '#e65100', '#9e9e9e'];
+    const datasets = meses.map((mes, index) => ({
+        label: mes,
+        data: bancos.map(banco => {
+            const item = ingresos.find(i => i.Banco === banco && i.Mes === mes);
+            return item ? item.Total : 0;
+        }),
+        backgroundColor: colores[index]
+    }));
+
+    const ctx = document.getElementById('graficaIngresos').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: { labels: bancos, datasets: datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Ingresos por banco'
+                }
+            },
+            scales: {
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Miles de Quetzales'
+                    }
+                }
+            }
+        }
+    });
+</script>
+}
+}
